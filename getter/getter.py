@@ -15,6 +15,7 @@ def webGetter(domainName, url=''):
     return render_template('getter.html', website=web)
 
 def getWebsite(websiteUrl):
+    websiteUrl = websiteUrl.replace('%20', ' ')
     response = http.request('GET', websiteUrl)
     soup = BeautifulSoup(response.data, 'html.parser')
     return soup.body
